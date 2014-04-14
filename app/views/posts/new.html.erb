@@ -1,10 +1,15 @@
-<%= form_for @post, html: { multipart: true } do |f| %>
-	<%= f.label :description %>
-	<%= f.text_field :description %>
-	
-	<%= f.label :picture %>
-	<%= f.file_field :picture %>
-
-	<%= f.submit %>
-<% end %>
-
+<div class="border-form-div">
+  <%= form_for @post, html: { multipart: true, class: 'form-horizontal' } do |f| %>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :picture %>
+      <%= f.file_field :picture %>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Post image', :class=>'btn btn-default' %>
+    </div>
+  <% end %>
+</div>
