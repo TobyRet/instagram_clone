@@ -14,6 +14,10 @@ describe 'uploading photos' do
 			it "shows the user who posted it" do
 				expect(page).to have_content 'dave'
 			end
+
+			it "shows the user who posted it" do
+				expect(page).to have_content 'less than a minute'
+			end
 	end
 
 	context "while logged out" do

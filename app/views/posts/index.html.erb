@@ -6,6 +6,7 @@
 		<div class="description-container">
 			<%= post.user.username %>
 			<%= post.description %>
+			<%= timestamp(post.created_at) %>
 		</div>
 	<% end %>
 <% else %>
