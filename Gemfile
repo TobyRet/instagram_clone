@@ -8,12 +8,13 @@ gem 'pg'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'font-awesome-sass'
 
-group :production do 
+group :production do
   gem 'rails_12factor'
 end
 
-group :development, :test do 
+group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
 end

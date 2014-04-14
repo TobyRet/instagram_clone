@@ -10,9 +10,10 @@
  *
  *= require_self
  *= require_tree .
-  *= require bootstrap
-
+ *= require bootstrap
+ *= require font-awesome
  */
+ 
 .border-form-div {
   max-width: 300px;
   padding: 19px 29px 29px;
