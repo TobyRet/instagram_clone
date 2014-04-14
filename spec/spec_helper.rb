@@ -48,3 +48,8 @@ def add_post
   attach_file 'Picture', Rails.root.join('spec/images/kitten.jpeg')
   click_button 'Create Post'
 end
+
+def login_as_test_user
+  visit "/users/sign_up"
+  # derp
+end

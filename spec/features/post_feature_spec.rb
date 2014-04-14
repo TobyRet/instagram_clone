@@ -4,7 +4,8 @@ describe 'uploading photos' do
 
 	context 'on the pictures page' do
 			
-			it 'should display a picture' do
+			xit 'should display a picture' do
+
 				add_post
 				expect(page).to have_css 'img.uploaded-pic'
 
@@ -14,8 +15,8 @@ describe 'uploading photos' do
 	context "while logged out" do
 
 		it "shouldnt be able to create a post" do
-			add_post
-			expect(page).to have_content "You need to login first"
+			visit '/posts/new'
+			expect(page).to have_content "You need to sign in"
 		end
 	end
 end
