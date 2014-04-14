@@ -8,7 +8,6 @@ describe 'uploading photos' do
 				login_as_test_user
 				add_post
 				expect(page).to have_css 'img.uploaded-pic'
-
 			end
 	end
 
