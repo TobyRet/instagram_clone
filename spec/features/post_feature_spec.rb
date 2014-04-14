@@ -4,10 +4,15 @@ describe 'uploading photos' do
 
 	context 'on the pictures page' do
 			
+			before { login_as_test_user }
+			before { add_post }
+		
 			it 'should display a picture' do
-				login_as_test_user
-				add_post
 				expect(page).to have_css 'img.uploaded-pic'
+			end
+
+			it "shows the user who posted it" do
+				expect(page).to have_content 'dave'
 			end
 	end
 

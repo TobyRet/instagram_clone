@@ -4,6 +4,7 @@
 			<%= image_tag post.picture.url(:medium), class: "uploaded-pic" %>
 		</div>
 		<div class="description-container">
+			<%= post.user.username %>
 			<%= post.description %>
 		</div>
 	<% end %>
