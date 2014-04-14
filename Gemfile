@@ -7,7 +7,7 @@ gem 'rails'
 gem 'pg'
 gem 'devise'
 gem 'bootstrap-sass'
-gem 'paperclip', '~> 3'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 
 group :production do 
   gem 'rails_12factor'
