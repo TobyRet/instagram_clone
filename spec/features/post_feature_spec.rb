@@ -4,8 +4,8 @@ describe 'uploading photos' do
 
 	context 'on the pictures page' do
 			
-			xit 'should display a picture' do
-
+			it 'should display a picture' do
+				login_as_test_user
 				add_post
 				expect(page).to have_css 'img.uploaded-pic'
 
