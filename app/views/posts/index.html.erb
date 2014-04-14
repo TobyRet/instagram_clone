@@ -1,8 +1,13 @@
-<%= @posts.each do |post| %>
-	<div class="image-container">
-		<%= image_tag post.picture.url(:medium), class: "uploaded-pic" %>
-	</div>
-	<div class="description-container">
-		<%= post.description %>
-	</div>
-<% end %> 
+
+<% if @posts.any? %>
+	<%= @posts.each do |post| %>
+		<div class="image-container">
+			<%= image_tag post.picture.url(:medium), class: "uploaded-pic" %>
+		</div>
+		<div class="description-container">
+			<%= post.description %>
+		</div>
+	<% end %>
+<% else %>
+	<h2>No Photos yet!</h2>
+<% end %>
