@@ -5,16 +5,17 @@ describe 'uploading photos' do
 	context 'on the pictures page' do
 			
 			it 'should display a picture' do
-				visit '/posts/new'
-				fill_in 'Description', with: 'sss'
-				attach_file 'Picture', Rails.root.join('spec/images/kitten.jpeg')
-				click_button 'Create Post'
-
+				add_post
 				expect(page).to have_css 'img.uploaded-pic'
 
 			end
-
 	end
 
+	context "while logged out" do
 
+		it "shouldnt be able to create a post" do
+			add_post
+			expect(page).to have_content "You need to login first"
+		end
+	end
 end

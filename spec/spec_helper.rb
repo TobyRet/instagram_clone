@@ -41,3 +41,10 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+def add_post
+  visit '/posts/new'
+  fill_in 'Description', with: 'sss'
+  attach_file 'Picture', Rails.root.join('spec/images/kitten.jpeg')
+  click_button 'Create Post'
+end
