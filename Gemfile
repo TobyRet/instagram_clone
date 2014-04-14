@@ -8,7 +8,7 @@ gem 'pg'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'paperclip', github: 'thoughtbot/paperclip'
-
+gem 'aws-sdk'
 group :production do 
   gem 'rails_12factor'
 end
