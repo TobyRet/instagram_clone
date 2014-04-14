@@ -12,7 +12,7 @@ describe User do
       fill_in 'Password', with: '12345678'
       fill_in 'Password confirmation', with: '12345678'
       click_button 'Sign up'
-      expect(member_signed_in?).to be_true
+      expect(page).to have_content "successfully"
 
     end
 
