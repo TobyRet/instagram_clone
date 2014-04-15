@@ -1,5 +1,12 @@
 ### Building instaderp
 
+
+You can find our application here: http://ma-gangstagram.herokuapp.com/
+
+for the secrets thingy on heroku I was missing
+
+```bin/rake heroku:secrets RAILS_ENV=production```
+
 ```rails g resource Post```
 
 * Then error happens
