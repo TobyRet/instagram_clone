@@ -18,19 +18,34 @@ describe 'uploading photos' do
 			it "shows the user who posted it" do
 				expect(page).to have_content 'less than a minute'
 			end
-
-			it "deletes a post" do
-				visit '/posts'
-				click_link 'Delete'
-				expect(page).not_to have_content 'sss'
-			end
 		end
 
 	context "while logged out" do
 
 		it "shouldnt be able to create a post" do
-			visit '/posts/new'
+			visit "/posts/new"
 			expect(page).to have_content "You need to sign in"
 		end
 	end
+
+	context 'with posts' do
+		before { login_as_test_user }
+		before { add_post }
+
+		it 'displays the post' do
+			visit '/posts'
+			expect(page).to have_content 'sss'
+		end
+
+		describe 'deleting a post' do
+
+			it 'removes the post' do
+				visit '/posts'
+				click_link 'Delete'
+				expect(page).not_to have_content 'sss'
+			end
+
+		end
+	end
+
 end

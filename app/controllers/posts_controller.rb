@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    puts params
+    #puts params
     @post = Post.new params[:post].permit(:description, :picture)
     @post.user = current_user
     if @post.save
@@ -20,4 +20,11 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
+
+  def destroy
+    @post = Post.find params[:id]
+    @post.destroy
+    redirect_to '/posts'
+  end
+
 end
