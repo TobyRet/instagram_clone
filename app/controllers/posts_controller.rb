@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    puts params
     @post = Post.new params[:post].permit(:description, :picture)
     @post.user = current_user
     if @post.save
