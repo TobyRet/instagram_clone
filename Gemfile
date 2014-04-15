@@ -9,9 +9,9 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
+gem 'font-awesome-sass'
 
 group :production do
-  gem 'font-awesome-sass'
   gem 'rails_12factor'
 end
 
