@@ -40,13 +40,13 @@ def add_post
   visit '/posts/new'
   fill_in 'Description', with: 'sss'
   attach_file 'Picture', Rails.root.join('spec/images/kitten.jpeg')
-  click_button 'Create Post'
+  click_button 'Post image'
 end
 
 def login_as_test_user
   visit '/users/sign_up'
   fill_in 'Username', with: 'dave'
-  fill_in 'Email', with: 'test@test.com'
+  fill_in 'Email address', with: 'test@test.com'
   fill_in 'Password', with: '12345678'
   fill_in 'Password confirmation', with: '12345678'
   click_button 'Sign up'
