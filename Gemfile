@@ -9,11 +9,13 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
-group :production do 
+
+group :production do
+  gem 'font-awesome-sass'
   gem 'rails_12factor'
 end
 
-group :development, :test do 
+group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
 end

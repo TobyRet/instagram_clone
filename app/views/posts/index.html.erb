@@ -1,14 +1,24 @@
 <% if @posts.any? %>
-	<% @posts.each do |post| %>
-		<div class="image-container">
-			<%= image_tag post.picture.url(:medium), class: "uploaded-pic" %>
-		</div>
-		<div class="description-container">
-			<%= post.user.username %>
-			<%= post.description %>
-			<%= timestamp(post.created_at) %>
-		</div>
-	<% end %>
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <% @posts.each do |post| %>
+        <div class="thumbnail">
+          <div class="image-container">
+            <%= image_tag post.picture.url(:medium), class: "uploaded-pic", :data => { src: "holder.js/300x200" } %>
+          </div>
+          <div class="description-container caption">
+            <p><%= post.description %></p>
+            <p>
+              <hr>
+              <i class="fa fa-user"></i>
+              <%= post.user.username %>
+            </p>
+            <p><span class="badge"><%= timestamp(post.created_at) %></span></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% else %>
-	<h2>No Photos yet!</h2>
+  <h2>No Photos yet!</h2>
 <% end %>
