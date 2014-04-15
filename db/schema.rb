@@ -24,9 +24,11 @@ ActiveRecord::Schema.define(version: 20140414152854) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "User_id"
     t.integer  "user_id"
   end
 
+  add_index "posts", ["User_id"], name: "index_posts_on_User_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: true do |t|

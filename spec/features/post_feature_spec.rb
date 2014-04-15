@@ -18,7 +18,13 @@ describe 'uploading photos' do
 			it "shows the user who posted it" do
 				expect(page).to have_content 'less than a minute'
 			end
-	end
+
+			it "deletes a post" do
+				visit '/posts'
+				click_link 'Delete'
+				expect(page).not_to have_content 'sss'
+			end
+		end
 
 	context "while logged out" do
 
