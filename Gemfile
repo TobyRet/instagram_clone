@@ -13,6 +13,7 @@ gem 'font-awesome-sass'
 
 group :production do
   gem 'rails_12factor'
+  gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 end
 
 group :development, :test do
