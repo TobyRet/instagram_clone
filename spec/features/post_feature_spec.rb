@@ -26,6 +26,22 @@ describe 'uploading photos' do
 			visit "/posts/new"
 			expect(page).to have_content "You need to sign in"
 		end
+
+	end
+
+	context 'tagging' do
+		before { login_as_test_user }
+		
+		it 'displays tags' do
+			visit '/posts/new'
+	  	fill_in 'Description', with: 'miaow'
+	  	fill_in 'Tags', with: '#cat, #cute'
+	  	attach_file 'Picture', Rails.root.join('spec/images/kitten.jpeg')
+	  	click_button 'Post image'
+
+	  	expect(page).to have_content '#cat, #cute'
+  	end
+  	
 	end
 
 	context 'with posts' do
