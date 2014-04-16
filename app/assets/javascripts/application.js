@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require inputosaurus
 //= require_tree .
-//= require bootstrap
+
+

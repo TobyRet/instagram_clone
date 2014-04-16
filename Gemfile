@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
 gem 'font-awesome-sass'
+gem 'jquery-ui-rails'
 
 group :production do
   gem 'rails_12factor'
