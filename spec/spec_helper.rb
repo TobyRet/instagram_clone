@@ -14,6 +14,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -42,6 +43,15 @@ def add_post
   attach_file 'Picture', Rails.root.join('spec/images/kitten.jpeg')
   click_button 'Post image'
 end
+
+def add_post_with_tags
+  visit '/posts/new'
+  fill_in 'Description', with: 'Testing a kitten'
+  fill_in 'Tags', with: '#kitten #cute'
+  attach_file 'Picture', Rails.root.join('spec/images/kitten.jpeg')
+  click_button 'Post image'
+end
+
 
 def login_as_test_user
   visit '/users/sign_up'

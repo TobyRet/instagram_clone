@@ -1,0 +1,23 @@
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <div class="image-container">
+      <%= image_tag post.picture.url(:medium), class: "uploaded-pic", :data => { src: "holder.js/300x200" } %>
+    </div>
+    <div class="description-container caption">
+      <p><%= post.description %></p>
+      <p><i class="fa fa-tags"></i>
+        <% post.tags.each do |tag| %>
+          <%= link_to tag.name, tag %>
+        <% end %>
+      </p>
+      <p>
+        <hr>
+        <i class="fa fa-user"></i>
+        <%= post.user.username %>
+      </p>
+      <p><span class="badge"><%= timestamp(post.created_at) %></span></p>
+      <hr>
+      <p><%= link_to "Delete", post_path(post), method: :delete, class: 'btn btn-danger' %></p>
+    </div>
+  </div>
+</div>
