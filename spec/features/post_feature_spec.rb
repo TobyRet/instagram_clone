@@ -64,4 +64,27 @@ describe 'uploading photos' do
 		end
 	end
 
+	context 'posts with tags' do
+		before do 
+			create(:user)
+			create(:post, tag_names: '#cat, #cute')
+			create(:post, description: 'Hello world') 
+		end
+
+		describe 'clicking a tag' do
+			it 'show the photos for that tag' do 
+				#login_as_test_user
+				visit '/posts'
+				click_link '#cat'
+				expect(page).to have_content('I am a cat')
+			end 
+
+			it 'does not show photos without that tag' do 
+				visit '/posts'
+				click_link '#cat'
+				expect(page).not_to have_content('Hello world')
+			end
+		end
+	end
+
 end

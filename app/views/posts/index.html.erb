@@ -9,7 +9,7 @@
           <div class="description-container caption">
             <p><strong><%= post.description %></strong></p>
             <p>Tags: <% post.tags.each do |tag| %>
-                  <%= tag.name %>
+                  <%= link_to tag.name, tag %> <!-- or use tag_path(tag) or tag_path(id: tag.id) or   -->
                 <% end %>
             </p>
             <p><i class="fa fa-user"></i> <%= post.user.username  %></p>

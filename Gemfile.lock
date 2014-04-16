@@ -67,6 +67,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    database_cleaner (1.2.0)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -76,6 +77,11 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
+    factory_girl (4.4.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.4.1)
+      factory_girl (~> 4.4.0)
+      railties (>= 3.0.0)
     font-awesome-sass (4.0.3.1)
       sass (~> 3.2)
     hike (1.2.3)
@@ -170,7 +176,9 @@ DEPENDENCIES
   bootstrap-sass
   capybara
   coffee-rails
+  database_cleaner
   devise
+  factory_girl_rails
   font-awesome-sass
   heroku_secrets!
   jbuilder (~> 1.2)
