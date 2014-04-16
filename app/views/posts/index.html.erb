@@ -1,27 +1,9 @@
-<% if @posts.any? %>
-  <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <% @posts.each do |post| %>
-        <div class="thumbnail">
-          <div class="image-container">
-            <%= image_tag post.picture.url(:medium), class: "uploaded-pic", :data => { src: "holder.js/300x200" } %>
-          </div>
-          <div class="description-container caption">
-            <p><strong><%= post.description %></strong></p>
-            <p>Tags: <% post.tags.each do |tag| %>
-                  <%= link_to tag.name, tag %> <!-- or use tag_path(tag) or tag_path(id: tag.id) or   -->
-                <% end %>
-            </p>
-            <p><%= post.comments.count %> comments</p>
-            <p><i class="fa fa-user"></i> <%= post.user.username  %></p>
-            <p><span class="badge"><%= timestamp(post.created_at) %></span></p>
-            <p><%= link_to 'Add a comment', new_post_comment_path(post), class: 'btn btn-primary' %></p>
-            <p><%= link_to 'Delete', post_path(post), method: :delete, class: 'btn btn-danger' %></p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-<% else %>
-  <h2>No Photos yet!</h2>
-<% end %>
+<div class="row">
+  <% if @posts.any? %>
+    <% @posts.each do |post| %>
+      <%= render 'post', { post: post } %>
+    <% end %>
+  <% else %>
+    <h2>No posts yet!</h2>
+  <% end %>
+</div>

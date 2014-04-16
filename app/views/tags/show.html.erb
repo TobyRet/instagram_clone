@@ -1,23 +1,5 @@
-<% @tag.posts.each do |post| %>
-  	<div class="row">
-  	  	<div class="col-sm-6 col-md-4">
-  	  	    <div class="thumbnail">
-  	  	      <div class="image-container">
-  	  	        <%= image_tag post.picture.url(:medium), class: "uploaded-pic", :data => { src: "holder			js/300x200" } %>
-  	  	      </div>
-  	  	      <div class="description-container caption">
-  	  	        <p><strong><%= post.description %></strong></p>
-  	  	        <p>Tags: <% post.tags.each do |tag| %>
-  	  	              <%= link_to tag.name, tag %> <!-- or use tag_path(tag) or tag_path(id: tag.id)or   -->
-  	  	            <% end %>
-  	  	        </p>
-  	  	        <p><i class="fa fa-user"></i> <%= post.user.username  %></p>
-  	  	        <p><span class="badge"><%= timestamp(post.created_at) %></span></p>
-  	  	        <p><%= link_to 'Delete', post_path(post), method: :delete, class: 'btn btn-danger' %></>
-  	  	      </div>
-  	  	    </div>
-  	  	</div>
-  	</div>
-<% end %>
+<div class="row">
+    <%= render @tag.posts %>
+</div>
 
 
