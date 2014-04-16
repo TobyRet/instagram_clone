@@ -20,9 +20,9 @@ class Post < ActiveRecord::Base
 
   def tag_names=(tag_names)
     tag_names.split(' ').uniq.each do |tag_name|
-      tag = Tag.find_or_create_by(name: tag_name)
+      tag_name.prepend('#') unless tag_name[0] == '#'
+      tag = Tag.find_or_create_by(name: tag_name.downcase)
       tags << tag
+      end
     end
   end
-
-end

@@ -14,6 +14,7 @@
             </p>
             <p><i class="fa fa-user"></i> <%= post.user.username  %></p>
             <p><span class="badge"><%= timestamp(post.created_at) %></span></p>
+            <p><%= link_to 'Add a comment', new_comment_path(post), class: 'btn btn-primary' %></p>
             <p><%= link_to 'Delete', post_path(post), method: :delete, class: 'btn btn-danger' %></p>
           </div>
         </div>

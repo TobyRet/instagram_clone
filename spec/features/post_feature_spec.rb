@@ -73,7 +73,6 @@ describe 'uploading photos' do
 
 		describe 'clicking a tag' do
 			it 'show the photos for that tag' do 
-				#login_as_test_user
 				visit '/posts'
 				click_link '#cat'
 				expect(page).to have_content('I am a cat')
@@ -84,6 +83,13 @@ describe 'uploading photos' do
 				click_link '#cat'
 				expect(page).not_to have_content('Hello world')
 			end
+
+			it 'uses a pretty url' do 
+				visit '/posts'
+				click_link '#cat'
+				expect(current_path).to eq '/tags/cat'
+			end
+
 		end
 	end
 
