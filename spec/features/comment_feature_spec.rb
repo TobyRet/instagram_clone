@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'commenting on posts' do
+
   before do 
     create(:user)
     create(:post)
@@ -19,4 +20,5 @@ describe 'commenting on posts' do
 
     expect(page).to have_content '1 comment'
   end
+  
 end

@@ -86,8 +86,8 @@ describe 'uploading photos' do
 
 			it 'uses a pretty url' do 
 				visit '/posts'
-				click_link '#cat'
-				expect(current_path).to eq '/tags/cat'
+				click_link '#cute'
+				expect(current_path).to eq '/tags/cute'
 			end
 
 		end
