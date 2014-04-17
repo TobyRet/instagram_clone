@@ -12,6 +12,7 @@ gem 'aws-sdk'
 gem 'font-awesome-sass'
 gem 'jquery-ui-rails'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'geocoder'
 
 group :production do
   gem 'rails_12factor'

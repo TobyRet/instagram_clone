@@ -43,6 +43,7 @@ describe 'deleting posts' do
     describe 'deleting my own posts' do
 
       it 'removes the post' do
+        create(:post, user: toby)
         visit '/posts'
         click_link 'Delete'
         expect(page).to have_content 'Post deleted successfully'
