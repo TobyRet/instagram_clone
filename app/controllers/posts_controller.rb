@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new params[:post].permit(:description, :picture, :tag_names)
+    @post = Post.new params[:post].permit(:description, :picture, :tag_names, :address)
     @post.user = current_user
     
     if @post.save
@@ -22,17 +22,24 @@ class PostsController < ApplicationController
 
   end
 
+  def show
+    @post = Post.find params[:id]
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @post }
+    end
+  end
+
   def destroy
     @post = current_user.posts.find params[:id]
     @post.destroy
 
     flash[:notice] = 'Post deleted successfully'
-    
     redirect_to '/posts'
-
     rescue ActiveRecord::RecordNotFound
-    flash[:notice] = 'This is not your post'
-    redirect_to '/posts'
+      flash[:notice] = 'This is not your post'
+      redirect_to '/posts'
   end
 
 end

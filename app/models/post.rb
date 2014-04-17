@@ -1,7 +1,5 @@
 class Post < ActiveRecord::Base
 
-	belongs_to :user
-
 	has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" },
 	storage: :s3,
 	bucket: 'instragramcloneproject',
@@ -13,7 +11,12 @@ class Post < ActiveRecord::Base
 
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
   has_and_belongs_to_many :tags
+
   has_many :comments
+  belongs_to :user
+
+  geocoded_by :address  
+  after_validation :geocode          
 
   def tag_names
     tags.map(&:name).join

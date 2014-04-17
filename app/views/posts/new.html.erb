@@ -13,6 +13,10 @@
       <%= f.file_field :picture %>
     </div>
     <div class="form-group">
+      <%= f.label :address, 'Address' %>
+      <%= f.text_field :address, :class => "form-control" %>
+    </div>
+    <div class="form-group">
       <%= f.submit 'Post image', :class=>'btn btn-default' %>
     </div>
   <% end %>
