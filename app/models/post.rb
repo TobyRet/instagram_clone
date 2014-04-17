@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
   has_and_belongs_to_many :tags
+  has_many :comments
 
   def tag_names
     tags.map(&:name).join
