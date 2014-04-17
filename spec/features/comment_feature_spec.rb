@@ -3,8 +3,8 @@ require 'spec_helper'
 describe 'commenting on posts' do
 
   before do 
-    create(:user)
-    create(:post)
+    rivka = create(:rivka)
+    create(:post, user: rivka)
   end
 
   it 'begins with no comments' do
