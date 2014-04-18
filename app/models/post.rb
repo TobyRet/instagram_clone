@@ -1,18 +1,20 @@
 class Post < ActiveRecord::Base
 
   belongs_to :user
+  has_and_belongs_to_many :tags
+  has_many :comments
 
   has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" },
     storage: :s3,
     bucket: 'gangstagram-images',
   s3_credentials: {
-    access_key_id: Rails.application.secrets[:aws_id],
-    secret_access_key: Rails.application.secrets[:aws_key]
+    access_key_id: Rails.application.secrets.aws_id,
+    secret_access_key: Rails.application.secrets.aws_key
   }
-  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
-  has_and_belongs_to_many :tags
-  has_many :comments
+  validates_attachment_content_type :picture, content_type: ["image/jpg", "image/jpeg", "image/png"]
+
+
 
   def tag_names
     tags.map(&:name).join

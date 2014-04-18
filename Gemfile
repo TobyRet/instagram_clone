@@ -12,7 +12,7 @@ gem 'aws-sdk'
 gem 'font-awesome-sass'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'geocoder'
-gem 'poltergeist'
+
 
 group :production do
   gem 'rails_12factor'
@@ -24,6 +24,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'poltergeist'
 end
 
 
@@ -47,7 +48,7 @@ gem 'jquery-ui-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.0'
 
 
 

@@ -15,7 +15,11 @@
         <i class="fa fa-user"></i>
         <%= post.user.username %>
         <span class="badge"><%= timestamp(post.created_at) %></span></p>
-      <p><span class="badge"><%= pluralize(post.comments.count, 'comment') %></span></p>
+      <p>
+        <%= link_to_if post.comments.any?, pluralize(post.comments.count, 'comment'), '#', data: { 'post-url' => post_path(post, format: :json) }, class: 'comment-link badge' %>
+      </p>
+      <ul class='comments'>
+      </ul>
       <hr>
       <p>
         <%= link_to 'Add a comment', new_post_comment_path(post), class: 'btn btn-primary' %>

@@ -25,4 +25,12 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to '/posts'
   end
+
+  def show
+    @post = Post.find params[:id]
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
 end
