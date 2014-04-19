@@ -5,6 +5,9 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
 require 'database_cleaner'
+require 'capybara/poltergeist'
+
+Capybara.javascript_driver = :poltergeist
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -19,9 +22,23 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
   Warden.test_mode!
 
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
+  config.use_transactional_fixtures = false
+  config.infer_base_class_for_anonymous_controllers = false
+
+  config.order = "random"
+
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each, :js => true) do
+    DatabaseCleaner.strategy = :truncation
   end
 
   config.before(:each) do
@@ -31,41 +48,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
-  # ## Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
-
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, remove the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = true
-
-  # If true, the base class of anonymous controllers will be inferred
-  # automatically. This will be the default behavior in future versions of
-  # rspec-rails.
-  config.infer_base_class_for_anonymous_controllers = false
 end
 
-#def add_post
-#  visit '/posts/new'
-#  fill_in 'Description', with: 'sss'
-#  attach_file 'Picture', Rails.root.join('spec/images/kitten.jpeg')
-#  click_button 'Post image'
-#end
-#
-#def login_as_test_user
-#  visit '/users/sign_up'
-#  fill_in 'Username', with: 'dave'
-#  fill_in 'Email address', with: 'test@test.com'
-#  fill_in 'Password', with: '12345678'
-#  fill_in 'Password confirmation', with: '12345678'
-#  click_button 'Sign up'
-#end
+
